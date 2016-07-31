@@ -9,7 +9,7 @@ define( function() {
     $("#block").append("<h1 class='title'>Character creation</h1>");
 
     for(var i = 0; i < 4; i++) {
-      $("#block").append("<div class='char-block' id='char-one'><h3 class='char-text'>Name</h3><input class='char-in-text dark-in' type='text' value='Adventurer'/><h3 class='char-text'>Role</h3><select class='char-select dark-in'><option class='option' selected value='swordsman'>Swordsman</option><option class='option' value='gunner'>Gunner</option><option class='option' value='magician'>Magician</option></select></div>");
+      $("#block").append("<div class='char-block' id='char-" + i + "'><h3 class='char-text'>Name</h3><input class='char-in-text dark-in' type='text' value='Adventurer'/><h3 class='char-text'>Role</h3><select class='char-select dark-in'><option class='option' selected value='swordsman'>Swordsman</option><option class='option' value='gunner'>Gunner</option><option class='option' value='magician'>Magician</option></select></div>");
     }
     $("#block").append("<button class='btn' id='createBtn' type='button'>Submit</button>");
   }
@@ -31,23 +31,18 @@ define( function() {
     // On submit, check for red borders
     $("#createBtn").on("click", function() {
       if($(".char-in-text").hasClass("red-border")) {
-        alert("can't proceed");
+        console.log("can't proceed");
       } else {
-        alert("all good");
+        // Store character data in local storage
+        console.log("all good");
       }
     });
-  }
-
-  // Store character data in local storage
-  function storeData() {
-
   }
 
   return {
     clear: clear,
     launch: launch,
     checkInput: checkInput,
-    submitParty: submitParty,
-    storeData: storeData
+    submitParty: submitParty
   }
 });
