@@ -1,15 +1,27 @@
 define( function() {
-  // Clears interface in preparation of a new interface
-  function clear(id) {
-    $(id).children().remove();
+  // Generate stats depending on the job chosen
+  function genStats(job) {
   }
 
   // Displays the character creation interface
   function launch() {
+    var names = ['John', 'Maria', 'Louis', 'Eleanor'];
+    var role = ['Swordsman', 'Gunner', 'Magician', 'Medic'];
+
     $("#block").append("<h1 class='title'>Character creation</h1>");
 
+    // For each party member
     for(var i = 0; i < 4; i++) {
-      $("#block").append("<div class='char-block' id='char-" + i + "'><h3 class='char-text'>Name</h3><input class='char-in-text dark-in' type='text' value='Adventurer'/><h3 class='char-text'>Role</h3><select class='char-select dark-in'><option class='option' selected value='swordsman'>Swordsman</option><option class='option' value='gunner'>Gunner</option><option class='option' value='magician'>Magician</option></select></div>");
+      $("#block").append("<div class='char-block' id='char-"
+       + i + "'><h3 class='char-text'>Name</h3><input class='char-in-text dark-in' type='text' value='"
+       + names[i] + "'/><h3 class='char-text'>Role</h3><select class='char-select dark-in' id='select-"
+       + i + "'>");
+
+      // Add all role to each select
+      for(j in role) {
+        $("#select-" + i).append("<option class='option' value='" + role[j] + "'>" + role[j] + "</option>");
+      }
+      $("#block").append("</select></div>");
     }
     $("#block").append("<button class='btn' id='createBtn' type='button'>Submit</button>");
   }
@@ -40,7 +52,7 @@ define( function() {
   }
 
   return {
-    clear: clear,
+    genStats: genStats,
     launch: launch,
     checkInput: checkInput,
     submitParty: submitParty
