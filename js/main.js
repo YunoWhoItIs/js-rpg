@@ -13,4 +13,5 @@ require(['charCreate', 'jQuery'], function(cc, $) {
   cc.launch();
   cc.checkInput();
   cc.submitParty();
+  cc.genStats();
 });
