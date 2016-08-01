@@ -70,6 +70,18 @@ define( function() {
       } else {
         // Store character data in local storage
         console.log("all good");
+
+        // Create party object containing 4 char objects
+        // Each char object holds a name and role
+        // Add stat modifiers from roles object
+        // Run party object through getStats()
+        //
+        // Sample char object:
+        //   char {
+        //     name:'John'
+        //     role:'Medic'
+        //     stats:[0, 0, 0, 0, 0, 0, 0]
+        //   }
       }
     });
   }
