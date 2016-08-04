@@ -1,6 +1,7 @@
 define( function() {
   // Default adventurer names
   var names = ['John', 'Maria', 'Louis', 'Eleanor'];
+
   // Define roles and stat modifiers
   var roles = {
     'Swordsman':[3, 2, 1, 0, 0, 3, 1],
@@ -10,23 +11,43 @@ define( function() {
   }
 
   // Generate stats depending on the job chosen
-  function genStats() {
+  function genStats(r) {
     // str - attack : end - defence : agi - evasion : spd - speed
     // int - magic : con - health : luk - crit/miss chance
     var baseStats = [10, 10, 10, 10, 10, 10, 10];
     var arr = [0, 0, 0, 0, 0, 0, 0];
 
-    // For each role
+    // Go through each role
     $.each(roles, function(key, value) {
-      // For each value
-      for(i in value) {
-        var variation = Math.round(Math.random() * (3 - 1));
+      // When we find a role match
+      if(r == key) {
+        // Calculate each stat value
+        for(i in value) {
+          var variation = Math.round(Math.random() * (3 - 1));
 
-        // Add doubled values to basestats then add variation from 0 to 2
-        arr[i] = (baseStats[i] + (value[i] * 2)) + variation;
+          // Add doubled values to basestats then add variation from 0 to 2
+          arr[i] = (baseStats[i] + (value[i] * 2)) + variation;
+        }
       }
-      console.log(arr);
     });
+    return arr;
+  }
+
+  // Creates a new player character object
+  function createObj(n, r) {
+    var pc = {
+      name:n,
+      role:r,
+      stats:[]
+    };
+
+    // Generate stats according to role
+    $.each(roles, function(key, value) {
+      if(pc.role == key) {
+        pc.stats = genStats(pc.role);
+      }
+    });
+    return pc;
   }
 
   // Displays the character creation interface
@@ -52,7 +73,7 @@ define( function() {
   // Check for valid input in text fields
   function checkInput() {
     $(".char-in-text").change(function() {
-      var match = /^[0-9a-zA-Z]+$/.test($(this).val());
+      var match = /^[0-9a-zA-Z ]+$/.test($(this).val());
       // Check input is between 1-16 chars and is alphanumeric
       if((($(this).val().length < 1) || ($(this).val().length > 16)) || (match != true)) {
         $(this).addClass("red-border");
@@ -62,34 +83,36 @@ define( function() {
     });
   }
 
+  // Creates a party using valid submitted data when submit is clicked
   function submitParty() {
     // On submit, check for red borders
     $("#createBtn").on("click", function() {
       if($(".char-in-text").hasClass("red-border")) {
-        console.log("can't proceed");
+        console.log("Invalid input");
+        return;
       } else {
-        // Store character data in local storage
-        console.log("all good");
+        // Create party array
+        var party = [];
 
-        // Create party object containing 4 char objects
-        // Each char object holds a name and role
-        // Add stat modifiers from roles object
-        // Run party object through getStats()
-        //
-        // Sample char object:
-        //   char {
-        //     name:'John'
-        //     role:'Medic'
-        //     stats:[0, 0, 0, 0, 0, 0, 0]
-        //   }
+        // Populate party using input data
+        for(var i = 0; i < 4; i++) {
+          var name = $("#char-" + i).find("input").val();
+          var role = $("#char-" + i).find("select").val();
+
+          party.push(createObj(name, role));
+        }
       }
     });
   }
-
   return {
     genStats: genStats,
+    createObj: createObj,
     launch: launch,
     checkInput: checkInput,
     submitParty: submitParty
   }
 });
+
+// To do next
+// - Clear the screen
+// - Go to overview screen
