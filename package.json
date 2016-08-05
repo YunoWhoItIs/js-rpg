@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/YunoWhoItIs/js-rpg#readme",
   "dependencies": {
+    "bootstrap": "^3.3.7",
     "jquery": "^3.1.0",
     "requirejs": "^2.2.0"
   }

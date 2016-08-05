@@ -52,13 +52,13 @@ define( function() {
 
   // Displays the character creation interface
   function launch() {
-    $("#block").append("<h1 class='title'>Character creation</h1>");
+    $("#block").append("<h1 class='h-major'>Character creation</h1>");
 
     // For each party member
     for(var i = 0; i < 4; i++) {
-      $("#block").append("<div class='char-block' id='char-"
-       + i + "'><h3 class='char-text'>Name</h3><input class='char-in-text dark-in' type='text' value='"
-       + names[i] + "'/><h3 class='char-text'>Role</h3><select class='char-select dark-in' id='select-"
+      $("#block").append("<div class='block-col' id='char-"
+       + i + "'><h3 class='h-minor'>Name</h3><input class='input-text input-dark' type='text' value='"
+       + names[i] + "'/><h3 class='h-minor'>Role</h3><select class='select input-dark' id='select-"
        + i + "'>");
 
       // Add all roles to each select

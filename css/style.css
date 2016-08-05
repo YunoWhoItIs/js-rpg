@@ -4,15 +4,15 @@ h1, h2, h3, h4, p {
 }
 
 h1 {
-  font-size:2.1em;
+  font-size:2.4em;
 }
 
 h2 {
-  font-size:1.8em;
+  font-size:2em;
 }
 
 h3 {
-  font-size:1.3em;
+  font-size:1.4em;
 }
 
 h4 {
@@ -38,9 +38,25 @@ select option:hover {
 
 .container {
   margin:10px auto;
-  width:800px;
+  width:1000px;
 }
 
+/* Headings */
+.h-title {
+  font-size:4em;
+  font-weight:bold;
+  margin:50px auto 40px;
+}
+
+.h-major {
+  margin:30px auto 20px;
+}
+
+.h-minor {
+  margin:15px auto 5px;
+}
+
+/* Text appearance */
 .sans-serif {
   font-family:'Roboto', sans-serif;
 }
@@ -49,13 +65,13 @@ select option:hover {
   font-family:'Fira Mono', monospace;
 }
 
-.dark-in {
-  background-color:#171217;
-  border:2px solid #373238;
+.text-center {
+  text-align:center;
 }
 
-.title {
-  margin:20px 5px 10px;
+.input-dark {
+  background-color:#171217;
+  border:2px solid #373238;
 }
 
 .output {
@@ -66,24 +82,21 @@ select option:hover {
   width:780px;
 }
 
-.char-block {
+.block-col {
+  background-color:#898;
   display:inline-block;
   width:25%;
   vertical-align:top;
 }
 
-.char-text {
-  margin:5px;
-}
-
-.char-in-text {
-  margin:auto 5px 10px;
+.input-text {
+  margin-bottom:10px;
   padding:5px;
   width:180px;
 }
 
-.char-select {
-  margin:auto 5px;
+.select {
+  margin:auto;
   padding:3px 2px;
   width:194px;
 }
@@ -92,15 +105,28 @@ select option:hover {
   padding-left:6px;
 }
 
+.red-border {
+  border:2px solid #da1920;
+}
+
+/* Buttons */
 .btn {
   background-color:#373238;
   border:0;
   color:#c4bfc8;
   cursor:pointer;
   font-size:1.2em;
-  margin:20px 5px;
+  margin:20px auto;
   padding:5px 0;
   width:794px;
+}
+
+.btn-lg {
+  font-size:1.5em;
+}
+
+.btn-sm {
+  font-size:1em;
 }
 
 .btn:hover {
@@ -109,8 +135,4 @@ select option:hover {
 
 .btn:active {
   background-color:#575258;
-}
-
-.red-border {
-  border:2px solid #da1920;
 }

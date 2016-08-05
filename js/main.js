@@ -10,6 +10,7 @@ require.config({
 });
 
 require(['charCreate', 'jQuery'], function(cc, $) {
+  // Start char creator, to be replaced with main menu
   cc.launch();
   cc.checkInput();
   cc.submitParty();

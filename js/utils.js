@@ -4,7 +4,20 @@ define( function() {
     $(id).children().remove();
   }
 
+  // Returns data stored in local storage
+  function loadData() {
+
+    return obj;
+  }
+
+  // Takes an object and stores it in local storage
+  function saveData(obj) {
+
+  }
+
   return {
-    clear: clear
+    clear: clear,
+    loadData: loadData,
+    saveData: saveData
   }
 });
