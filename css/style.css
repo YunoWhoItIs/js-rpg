@@ -1,3 +1,4 @@
+/* Tags */
 h1, h2, h3, h4, p {
   margin:0;
   padding:0;
@@ -19,37 +20,74 @@ h4 {
   font-size:1em;
 }
 
-p {
-  margin:10px auto;
-}
-
-select option {
+select, select option {
   box-shadow: inset 20px 20px #171217;
+  cursor:pointer;
 }
 
 select option:hover {
   box-shadow: inset 20px 20px #373238;
 }
 
+/* General cosmetics */
 .document {
-  background-color:#27222e;
-  color:#c4bfc8;
+  background-color:#e3ddd2;
+  color:#181b22;
 }
 
+.dark-border {
+  border:2px solid #171217;
+}
+
+.red-border {
+  border:2px solid #da1920;
+}
+
+/* Layout */
 .container {
-  margin:10px auto;
+  margin:auto;
   width:1000px;
+}
+
+.block {
+  padding:0 0 20px;
+}
+
+.block-col {
+  display:inline-block;
+  margin:auto 2.8%;
+  width:19.4%;
+  vertical-align:top;
+}
+
+.input-text {
+  padding:5px;
+  width:180px;
+}
+
+.select {
+  margin:auto;
+  padding:3px 2px;
+  width:194px;
+}
+
+.text-center {
+  text-align:center;
+}
+
+.option {
+  padding-left:6px;
 }
 
 /* Headings */
 .h-title {
   font-size:4em;
   font-weight:bold;
-  margin:50px auto 40px;
+  margin:50px auto;
 }
 
 .h-major {
-  margin:30px auto 20px;
+  margin:30px auto;
 }
 
 .h-minor {
@@ -65,13 +103,10 @@ select option:hover {
   font-family:'Fira Mono', monospace;
 }
 
-.text-center {
-  text-align:center;
-}
-
 .input-dark {
   background-color:#171217;
-  border:2px solid #373238;
+  border:2px solid #171217;
+  color:#e3ddd2;
 }
 
 .output {
@@ -82,57 +117,35 @@ select option:hover {
   width:780px;
 }
 
-.block-col {
-  background-color:#898;
-  display:inline-block;
-  width:25%;
-  vertical-align:top;
-}
-
-.input-text {
-  margin-bottom:10px;
-  padding:5px;
-  width:180px;
-}
-
-.select {
-  margin:auto;
-  padding:3px 2px;
-  width:194px;
-}
-
-.option {
-  padding-left:6px;
-}
-
-.red-border {
-  border:2px solid #da1920;
-}
-
 /* Buttons */
 .btn {
-  background-color:#373238;
+  background-color:#171217;
   border:0;
-  color:#c4bfc8;
+  color:#e3ddd2;
   cursor:pointer;
   font-size:1.2em;
-  margin:20px auto;
+  margin:20px 40%;
   padding:5px 0;
-  width:794px;
+  width:20%;
 }
 
-.btn-lg {
+.btn-primary {
+  margin:40px 30%;
+  width:40%;
+}
+
+.btn-text-lg {
   font-size:1.5em;
 }
 
-.btn-sm {
+.btn-text-sm {
   font-size:1em;
 }
 
 .btn:hover {
-  background-color:#474248;
+  background-color:#272227;
 }
 
 .btn:active {
-  background-color:#575258;
+  background-color:#373237;
 }
